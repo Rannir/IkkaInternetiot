@@ -1,0 +1,9 @@
+server/node_modules
+client/node_modules
+client/.vs
+client/.vscode
+client/.sass-cache
+server/.vs
+server/.vscode
+.vs
+.vscode
