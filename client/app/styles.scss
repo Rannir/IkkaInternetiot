@@ -1,0 +1,29 @@
+@import "main/main.scss";
+
+@font-face {
+    font-family: 'Cursive';
+    src:url('./fonts/cursivebeauty.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF';
+    src:url('./fonts/sf-pro-display_light.woff2') format('woff2');
+  }
+.backgroundLandscape{
+    background-image: url(../css/images/mt-1002-home-bg.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cursive{
+    font-family: 'Cursive', sans-serif;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    font-family: 'SF', sans-serif;
+}
