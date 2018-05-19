@@ -1,5 +1,7 @@
 
 #איך לגרום לגאלפ לעבוד
+
+
 להוריד node
 https://nodejs.org/en/
 
@@ -21,6 +23,8 @@ gem install breakpoint
 npm install
 
 #iis
+
+
 בשביל שיהיה צד לקוח פשוט תריצו את הסקריפט
 set_windows_iis
 שבתיקיית client
@@ -30,11 +34,15 @@ run for iis sites
 http://localhost/ikka/#/
 
 #צד שרת
+
+
 בשביל להריץ אותו 
 תריצו ב cmd
 npm run dev
 וזהו.. כל שינוי בקוד יעדכן את השרת אוטומטית
 
 #mongo
+
+
 תתקינו לבד, ובשביל להקים את השרת שלכם יש סקריפט שם
 תצטרכו רק לשנות את הנתיב לנתיב שלכן
