@@ -38,12 +38,15 @@ const createPath = function (isProd, suffix) {
 };
 
 const projectPaths = {
-    html: ['app/**/*.html'],
+    html: ['app/**/*.html', '!app/index.html', '!app/authentication/authentication.html'],
     htmlRoot: ['app/*.html'],
     javascript: ['app/imports.js',
                  'app/external-scripts/Chart.js',
                  'app/external-scripts/angular-chart.js',
                  'app/external-scripts/*.js',
+                 'app/authentication/authenticationService.js',
+                 'app/authentication/*.js',
+                 'app/app.js',
                  'app/*.js',
                  'app/**/*.js'],
     images: ['app/images/*'],
@@ -139,7 +142,7 @@ const jsTask = function(isProd)
         .on('error', gutil.log)
         .pipe(through2.obj(jsHelperFunc))
         .pipe(strip({safe: true}))
-        //.pipe(embedTemplates({skipFiles}))
+        .pipe(embedTemplates({skipFiles}))
         //.pipe(concat('app' + randomId + '.js'))
         .pipe(concat('app.js'))
         .pipe(gulpIf(isProd, buffer()))

@@ -1,9 +1,12 @@
 'use strict';
 
-const ikka = angular.module('ikka', ['toaster', 'ngResource', 'ngRoute', 'ngAnimate', 'angularSpinner', 'ngMaterial']);
+const ikka = angular.module('ikka', ['toaster', 'ngResource', 'ngRoute', 'ngAnimate', 'angularSpinner', 'ngMaterial', 'ikkaAuth']);
 
 
-ikka.config(['$routeProvider', ($routeProvider) => {
+ikka.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
+    
+    $locationProvider.hashPrefix('');
+
     $routeProvider.when('/',
     {
         templateUrl: /*!*/ 'HTML/main.html',

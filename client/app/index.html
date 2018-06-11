@@ -1,23 +1,21 @@
-<html>
-    
+<html ng-app="ikka">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Ikka</title>
-        <nav>
+        <script src="js/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="css/toaster.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="attachedItem topAttach navBarMenu">
             <a href="#aye">aye</a>
             <a href="#bye">bye</a>
+            <!-- <auth-component sign-in-url="http://localhost:3090/signin"></auth-component> -->
         </nav>
-    </head>
-    <body ng-app="ikka" class=" backgroundLandscape">
         <toaster-container toaster-options="{'time-out': 7000}"></toaster-container>
-       
-        <div  ng-view >
-            
-        </div> 
+        <div ng-view class="ngViewDiv"></div> 
+        <footer class="attachedItem botAttach footerSection"><p class="footerParagraph">some footer text yo</p></footer>
     </body>
-    <script src="js/app.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-    <link rel="stylesheet" type="text/css" href="css/toaster.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 </html>

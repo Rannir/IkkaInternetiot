@@ -1,29 +1,54 @@
 @import "main/main.scss";
+@import "authentication/authentication.scss";
 
-@font-face {
-    font-family: 'Cursive';
-    src:url('./fonts/cursivebeauty.woff2') format('woff2');
-  }
+$lightPrimary: rgba(255, 255, 255, 0.9);
+$darkPrimary: rgba(0, 0, 0, 0.90);
+$fontSize: 1em;
 
-  @font-face {
-    font-family: 'SF';
-    src:url('./fonts/sf-pro-display_light.woff2') format('woff2');
-  }
-.backgroundLandscape{
-    background-image: url(../css/images/mt-1002-home-bg.jpg);
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.cursive{
-    font-family: 'Cursive', sans-serif;
-}
-
-ul{
-    list-style: none;
-    margin: 0;
+html {
     padding: 0;
+    margin: 0;
 }
-html,body{
-    font-family: 'SF', sans-serif;
+
+body {
+    background-color: $lightPrimary;
+    padding: 0;
+    margin: 0;
+    font-size: $fontSize;
+}
+
+.attachedItem {
+    background-color: $darkPrimary;
+    width: 100%;
+    display: flex;
+    z-index: 1;
+    left: 0;
+    position: fixed;
+}
+
+.topAttach {
+    top: 0;
+}
+
+.botAttach {
+    bottom: 0;
+}
+
+.navBarMenu {
+    height: 5vh;
+}
+
+.footerSection {
+    height: 3vh;
+}
+
+.footerParagraph {
+    margin: auto;
+    color: $lightPrimary;
+}
+
+.ngViewDiv {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    width: 100%;
 }
