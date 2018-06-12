@@ -1,9 +1,14 @@
+$lightPrimary: rgba(255, 255, 255, 0.8);
+$lightSecondary: rgb(255, 255, 255);
+$darkPrimary: #333;
+$darkSecondary: #111;
+$fontSize: 1em;
+$navBarHeight: 5vh;
+$footerHeight: 3vh;
+
 @import "main/main.scss";
 @import "authentication/authentication.scss";
-
-$lightPrimary: rgba(255, 255, 255, 0.9);
-$darkPrimary: rgba(0, 0, 0, 0.90);
-$fontSize: 1em;
+@import "register/register.scss";
 
 html {
     padding: 0;
@@ -35,11 +40,11 @@ body {
 }
 
 .navBarMenu {
-    height: 5vh;
+    height: $navBarHeight;
 }
 
 .footerSection {
-    height: 3vh;
+    height: $footerHeight;
 }
 
 .footerParagraph {
@@ -48,7 +53,53 @@ body {
 }
 
 .ngViewDiv {
-    margin-top: 5vh;
-    margin-bottom: 3vh;
+    margin-top: $navBarHeight;
+    margin-bottom: $footerHeight;
     width: 100%;
+}
+
+.menu {
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+        margin-right: 1vh;
+        float: left;
+        height: 100%;
+
+        a {
+            color: $lightPrimary;
+            font-size: 3vh;
+            height: 100%;
+            display: block;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: $darkSecondary;
+        }
+    }
+
+    li:first-child {
+        margin-right: $navBarHeight;
+
+        a {
+            font-size: $navBarHeight;
+        }
+        
+        a:hover {
+            background-color: $darkPrimary;
+        }
+    }
+
+    li:last-child {
+        float: right;
+        margin-left: $navBarHeight;
+
+        a:hover {
+            background-color: $darkPrimary;
+        }
+    }
 }

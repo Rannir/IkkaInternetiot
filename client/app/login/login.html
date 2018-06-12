@@ -1,0 +1,11 @@
+<form name="userForm">
+    <md-input-container>
+        <label>Email</label>
+        <input name="email" ng-model="ctrl.model.Email" required  type="email">
+    </md-input-container>
+    <md-input-container>
+        <label>Password</label>
+        <input name="password" ng-model="ctrl.model.Password" required invalid type="password" >
+    </md-input-container>
+    <md-button  type="submit" class="md-raised startMyJourneybtn" ng-mouseup="ctrl.login()">login</md-button>
+</form>

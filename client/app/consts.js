@@ -1,6 +1,9 @@
-const serverUrl = '';
+'use strict';
+
+const serverUrl = 'http://localhost:3090';
 
 angular.module('ikka').
 constant('consts', {
-    loginApi: `asd`
+    loginApi: `${serverUrl}/signin`,
+    signupApi: `${serverUrl}/signup`
 });

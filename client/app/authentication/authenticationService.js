@@ -6,11 +6,15 @@ ikkaAuth.service('authService', function($http) {
     const srvc = this;
     let hasLoggedIn = false;
 
+    if(!angular.isUndefinedOrNull(window.localStorage.getItem('token'))) {
+        hasLoggedIn = true;
+    }
+
     const signinOrUpuser = function(url, email, password, userName, onDoneFunc) {
         $http.post(url, {email, password, userName}).then(function({data}) {
             hasLoggedIn = true;
             // - Save the JWT token
-            window.localStorage.setItem('tokenandname', JSON.stringify({ token: data.token, userName: data.userName }));
+            window.localStorage.setItem('token', data.token);
 
             if(onDoneFunc)
                 onDoneFunc();
@@ -30,8 +34,16 @@ ikkaAuth.service('authService', function($http) {
     };
 
     srvc.signoutUser = function() {
-        window.localStorage.removeItem('tokenandname');
+        window.localStorage.removeItem('token');
         hasLoggedIn = false;
+    };
+
+    srvc.getUserName = function() {
+
+    };
+
+    srvc.getUserToekn = function() {
+
     };
 
     return srvc;

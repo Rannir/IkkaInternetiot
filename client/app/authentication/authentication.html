@@ -1,14 +1,8 @@
-<div>
-    <form name="userForm" ng-if="!$ctrl.hasLoggedIn">
-        <md-input-container>
-            <label>Email</label>
-            <input name="email" ng-model="$ctrl.email" required type="email">
-        </md-input-container>
-        <md-input-container>
-            <label>Password</label>
-            <input name="password" ng-model="$ctrl.password" required type="password" >
-        </md-input-container>
-        <md-button  type="submit" class="md-raised" ng-mouseup="$ctrl.signin()">sign in</md-button>
-    </form>
-    <div ng-if="$ctrl.hasLoggedIn"> welcome cunt! </div>
-</div>
+<ul class="authUl" ng-if="!$ctrl.hasLoggedIn">
+    <li class="authulItem"><button ng-click="$ctrl.login()">Login</md-button></li>
+    <li class="authulItem"><button ng-click="$ctrl.register()">Register</md-button></li>
+</ul>
+<ul class="authUl" ng-if="$ctrl.hasLoggedIn">
+    <li class="authulItem">welcome man</li>
+    <li class="authulItem"><button ng-click="$ctrl.logout()">Logout</md-button></li>
+</ul>

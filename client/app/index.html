@@ -8,11 +8,16 @@
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body>
+    <body ng-controller="indexController as ctrl">
         <nav class="attachedItem topAttach navBarMenu">
-            <a href="#aye">aye</a>
-            <a href="#bye">bye</a>
-            <!-- <auth-component sign-in-url="http://localhost:3090/signin"></auth-component> -->
+            <ul class="menu">
+                <li><a href="#/">Ikka</a></li>
+                <li><a href="#/">path a</a></li>
+                <li><a href="#/">path b</a></li>
+                <li><a href="#/">path c</a></li>
+                <li><a href="#/">path d</a></li>
+                <li><auth-component login-function="ctrl.login()" register-function="ctrl.register()"></auth-component></li>
+            </ul>
         </nav>
         <toaster-container toaster-options="{'time-out': 7000}"></toaster-container>
         <div ng-view class="ngViewDiv"></div> 

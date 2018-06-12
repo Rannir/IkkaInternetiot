@@ -253,10 +253,12 @@ gulp.task('forProd', () => {
 });
 
 gulp.task('default', ['all'], function() {
+
+    let javaScriptPaths = ['app/**/*.html', ...projectPaths.javascript];
     
     gulp.watch(projectPaths.html, ['html']);
     gulp.watch(projectPaths.htmlRoot, ['htmlRoot']);
-    gulp.watch(projectPaths.javascript, ['js']);
+    gulp.watch(javaScriptPaths, ['js']);
     gulp.watch(projectPaths.styles, ['compass']);
     gulp.watch(projectPaths.images, ['image']);
     gulp.watch(projectPaths.fonts, ['fonts']);
