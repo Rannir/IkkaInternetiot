@@ -15,7 +15,7 @@ To run the client:
 
 ```
 cd web
-ng serve --open
+npm run start
 ```
 
 ## Note
