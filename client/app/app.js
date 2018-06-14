@@ -1,6 +1,6 @@
 'use strict';
 
-const ikka = angular.module('ikka', ['toaster', 'ngResource', 'ngRoute', 'ngAnimate', 'angularSpinner', 'ngMaterial', 'ikkaAuth']);
+const ikka = angular.module('ikka', ['toaster', 'ngResource', 'ngRoute', 'ngAnimate', 'angularSpinner', 'ngMaterial', 'ikkaAuth', 'ikkaChat']);
 
 ikka.service('authHeader', function() {
     let srv = this;

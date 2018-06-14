@@ -21,6 +21,7 @@
         </nav>
         <toaster-container toaster-options="{'time-out': 7000}"></toaster-container>
         <div ng-view class="ngViewDiv"></div> 
+        <aside class="chatContainer"><chat-component is-admin="ctrl.isAdmin" chat-server-url="ctrl.chatServerUrl" chat-server-resource-path="ctrl.chatResource" token="ctrl.token"></chat-component></div>
         <footer class="attachedItem botAttach footerSection"><p class="footerParagraph">some footer text yo</p></footer>
     </body>
 </html>

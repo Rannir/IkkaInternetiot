@@ -13,17 +13,13 @@ exports.signin = function(req, res, nest) {
 
     // passport had our backs! and assigns the req.user as our user 
     // from the done callback
-    res.send({ token: tokenForUser(req.user), userName: req.user.name });
+    res.send({ token: tokenForUser(req.user), userName: req.user.name, isAdmin: req.user.isAdmin });
 }
 
 exports.signup = function(req, res, next) {
     const email = req.body.email;
     const password = req.body.password;
     const name = req.body.userName;
-    console.log({
-        email,
-        password,
-        name});
 
     if(!email || !password) {
         return res.status(422).send({ error: 'You must provide email and password' });
@@ -43,14 +39,15 @@ exports.signup = function(req, res, next) {
         const user = new User({
             email,
             password,
-            name
+            name,
+            isAdmin: false
         });
 
         user.save(function(err) {
             if(err) { return next(err); }
             
             // Respond to request indicating the user was created
-            res.json({ token: tokenForUser(user), userName: user.name });
+            res.json({ token: tokenForUser(user), userName: user.name, isAdmin: user.isAdmin });
         });
     });
 }

@@ -1,0 +1,10 @@
+<section class="chatSection">
+    <p>Shop updates:</p>
+    <ul class="chatMessages">
+        <li ng-repeat="msg in $ctrl.messages"><button ng-if="$ctrl.isAdmin" ng-click="$ctrl.deleteMessage(msg)">x</button>{{msg.message}}</li>
+    </ul>
+    <form class="chatMessage" ng-if="$ctrl.isAdmin" ng-submit="$ctrl.sendMessage()">
+        <input type="text" ng-model="$ctrl.message">
+        <input type="submit"  value="send">
+    </form>
+</section>

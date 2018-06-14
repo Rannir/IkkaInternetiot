@@ -13,9 +13,11 @@ angular.module('ikkaAuth').component('authComponent', {
 function authComponentController($scope, $element, $attrs, authService, $location) {
     const ctrl = this;
     ctrl.hasLoggedIn = false;
+    ctrl.usrName = '';
 
     $scope.$watch(authService.hasUserAuthenticated, function(newValue) {
         ctrl.hasLoggedIn = newValue;
+        ctrl.usrName = authService.getUserName();
     });
     
     ctrl.login = function() {

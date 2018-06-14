@@ -46,6 +46,8 @@ const projectPaths = {
                  'app/external-scripts/*.js',
                  'app/authentication/authenticationService.js',
                  'app/authentication/*.js',
+                 'app/chat/socketProvider.js',
+                 'app/chat/*.js',
                  'app/app.js',
                  'app/*.js',
                  'app/**/*.js'],

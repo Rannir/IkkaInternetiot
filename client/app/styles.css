@@ -43,7 +43,15 @@ body {
 .ngViewDiv {
     margin-top: 5vh;
     margin-bottom: 3vh;
-    width: 100%;
+    width: 75%;
+    float: left;
+}
+
+.chatContainer {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    width: 25%;
+    float: right;
 }
 
 .menu {

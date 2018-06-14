@@ -3,6 +3,6 @@
     <li class="authulItem"><button ng-click="$ctrl.register()">Register</md-button></li>
 </ul>
 <ul class="authUl" ng-if="$ctrl.hasLoggedIn">
-    <li class="authulItem">welcome man</li>
+    <li class="authulItem">welcome {{$ctrl.usrName}}</li>
     <li class="authulItem"><button ng-click="$ctrl.logout()">Logout</md-button></li>
 </ul>
