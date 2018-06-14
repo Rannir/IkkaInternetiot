@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const {initPassport} = require('./services/passport');
 const routes = require('./routes');
 
-// mongoose.connect('mongodb://igor:password1@ds259410.mlab.com:59410/ikka-db');
-mongoose.connect('mongodb://localhost:27017/ikka-db');
+mongoose.connect('mongodb://igor:password1@ds259410.mlab.com:59410/ikka-db');
+//mongoose.connect('mongodb://localhost:27017/ikka-db');
 initPassport();
 
 app.use(morgan('combined'));

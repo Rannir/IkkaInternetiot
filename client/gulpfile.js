@@ -23,7 +23,7 @@ const replace = require('gulp-replace');
 const _ = require('lodash');
 
 const createPath = function (isProd, suffix) {
-    let result = `builds`;
+    let result = `D:/builds`;
 
     if(isProd)
         result = `${result}/production`;
