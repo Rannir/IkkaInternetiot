@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -47,6 +48,9 @@
     "through2": "^2.0.3",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5",
     "vinyl-transform": "^1.0.0"
   }
 }

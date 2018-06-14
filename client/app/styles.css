@@ -1,0 +1,93 @@
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+}
+
+.attachedItem {
+    background-color: #333;
+    width: 100%;
+    display: flex;
+    z-index: 1;
+    left: 0;
+    position: fixed;
+}
+
+.topAttach {
+    top: 0;
+}
+
+.botAttach {
+    bottom: 0;
+}
+
+.navBarMenu {
+    height: 5vh;
+}
+
+.footerSection {
+    height: 3vh;
+}
+
+.footerParagraph {
+    margin: auto;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.ngViewDiv {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    width: 100%;
+}
+
+.menu {
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu li {
+    margin-right: 1vh;
+    float: left;
+    height: 100%;
+}
+
+.menu li a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 3vh;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+}
+.menu li a:hover {
+    background-color: #111;
+}
+
+.menu li:first-child {
+    margin-right: 5vh;
+}
+
+.menu li:first-child a {
+    font-size: 5vh;
+}
+    
+.menu li:first-child a:hover {
+    background-color: #333;
+}
+
+.menu li:last-child {
+    float: right;
+    margin-left: 5vh;
+}
+
+.menu li:last-child a:hover {
+    background-color: #333;
+}

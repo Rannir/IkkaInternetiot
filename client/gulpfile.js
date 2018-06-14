@@ -13,7 +13,7 @@ const buffer = require('vinyl-buffer');
 const imagemin = require('gulp-imagemin');
 const spritesmith = require('gulp.spritesmith');
 const gulpIf = require('gulp-if');
-const compass = require('gulp-compass');
+//const compass = require('gulp-compass');
 const embedTemplates = require('gulp-angular-embed-templates');
 const strip = require('gulp-strip-comments');
 const transform = require('vinyl-transform');
@@ -23,7 +23,7 @@ const replace = require('gulp-replace');
 const _ = require('lodash');
 
 const createPath = function (isProd, suffix) {
-    let result = `D:/builds`;
+    let result = `builds`;
 
     if(isProd)
         result = `${result}/production`;
@@ -52,8 +52,8 @@ const projectPaths = {
     images: ['app/images/*'],
     fonts: ['app/fonts/*'],
     externalCss: ['app/external-scripts/*.css'],
-    styles: ['app/*.scss',
-             'app/**/*.scss']
+    styles: ['app/*.css',
+             'app/**/*.css']
 };
 
 const cleanPaths = [`${createPath(false)}/*`, `${createPath(true)}`];
@@ -157,18 +157,22 @@ const jsTask = function(isProd)
 
 const compassTask = function(isProd)
 {
-    const compassOptions ={
-        sass : 'app',
-        css : createPath(isProd, '/css'),
-        style : (isProd)? 'compressed': 'expanded',
-        comments: !isProd,
-        logging: !isProd,
-        debug : !isProd,
-        require: ['susy', 'breakpoint']
-    };
-    gulp.src(['app/styles.scss'])
-        .pipe(compass(compassOptions))
-        .on('error', gutil.log);
+    gulp.src(projectPaths.styles)
+        .on('error', gutil.log)
+        .pipe(concat('styles.css'))
+        .pipe(gulp.dest(createPath(isProd, '/css')));
+    // const compassOptions ={
+    //     sass : 'app',
+    //     css : createPath(isProd, '/css'),
+    //     style : (isProd)? 'compressed': 'expanded',
+    //     comments: !isProd,
+    //     logging: !isProd,
+    //     debug : !isProd,
+    //     require: ['susy', 'breakpoint']
+    // };
+    // gulp.src(['app/styles.scss'])
+    //     .pipe(compass(compassOptions))
+    //     .on('error', gutil.log);
 };
 
 const fontsTask = function(isProd)

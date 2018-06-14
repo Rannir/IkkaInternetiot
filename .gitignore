@@ -2,4 +2,4 @@
 *.vs
 *.vscode
 *.sass-cache
-client/builds
+client/builds/*

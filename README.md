@@ -16,6 +16,10 @@ To run the client:
 ```
 cd web
 npm run start
+
+or cd client
+gulp (first cmd)(run: npm install gulp -g before if you haven't yet)
+npm run dev (second cmd)
 ```
 
 ## Note
