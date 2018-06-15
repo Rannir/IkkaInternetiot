@@ -1,0 +1,29 @@
+{
+  "name": "ikkainternetiot",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rannir/IkkaInternetiot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rannir/IkkaInternetiot/issues"
+  },
+  "homepage": "https://github.com/Rannir/IkkaInternetiot#readme",
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.5"
+  },
+  "lint-staged": {
+    "*.{ts,js,json,css,md}": [
+      "prettier --print-width 120 --single-quote --trailing-comma all --no-bracket-spacing --write",
+      "git add"
+    ]
+  }
+}
