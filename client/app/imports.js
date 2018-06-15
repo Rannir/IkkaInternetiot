@@ -17,5 +17,5 @@ global._ = require('lodash');
 global.io = require('socket.io-client');
 
 angular.isUndefinedOrNull = function(obj) {
-    return angular.isUndefined(obj) || obj === null || obj === '';
-}
+  return angular.isUndefined(obj) || obj === null || obj === '';
+};

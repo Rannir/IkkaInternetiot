@@ -22,9 +22,9 @@ app.use('/api', routes);
 const port = process.env.PORT || 3090;
 
 const server = http.createServer(app).listen(port, () => {
-    console.log(`ikka server started on port ${port}`);
+  console.log(`ikka server started on port ${port}`);
 });
 
-const io = require('socket.io')(server, { path: '/ikkachat/socket.io' });
+const io = require('socket.io')(server, {path: '/ikkachat/socket.io'});
 
 initChat(io);

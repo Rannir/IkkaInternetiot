@@ -1,52 +1,65 @@
 'use strict';
 
-const ikka = angular.module('ikka', ['toaster', 'ngResource', 'ngRoute', 'ngAnimate', 'angularSpinner', 'ngMaterial', 'ikkaAuth', 'ikkaChat']);
+const ikka = angular.module('ikka', [
+  'toaster',
+  'ngResource',
+  'ngRoute',
+  'ngAnimate',
+  'angularSpinner',
+  'ngMaterial',
+  'ikkaAuth',
+  'ikkaChat',
+]);
 
 ikka.service('authHeader', function() {
-    let srv = this;
-    
-    srv.request = function(config) {
-        if(!angular.isUndefinedOrNull(localStorage.getItem('token'))) {
-            config.headers.authorization = localStorage.getItem('token');
-        }
+  let srv = this;
 
-        return config;
-    };
+  srv.request = function(config) {
+    if (!angular.isUndefinedOrNull(localStorage.getItem('token'))) {
+      config.headers.authorization = localStorage.getItem('token');
+    }
 
-    return srv;
+    return config;
+  };
+
+  return srv;
 });
 
-ikka.config(['$routeProvider', '$locationProvider', '$httpProvider', ($routeProvider, $locationProvider, $httpProvider) => {
-    
+ikka.config([
+  '$routeProvider',
+  '$locationProvider',
+  '$httpProvider',
+  ($routeProvider, $locationProvider, $httpProvider) => {
     $locationProvider.hashPrefix('');
 
     $httpProvider.interceptors.push('authHeader');
 
-    $routeProvider.when('/',
-    {
+    $routeProvider
+      .when('/', {
         templateUrl: /*!*/ 'HTML/main.html',
         controller: 'mainController',
-        controllerAs: 'ctrl'
-    }).when('/register',
-    {
+        controllerAs: 'ctrl',
+      })
+      .when('/register', {
         templateUrl: /*!*/ 'HTML/register.html',
         controller: 'registerController',
-        controllerAs: 'ctrl'
-    }).when('/login',
-    {
+        controllerAs: 'ctrl',
+      })
+      .when('/login', {
         templateUrl: /*!*/ 'HTML/login.html',
         controller: 'loginController',
-        controllerAs: 'ctrl'
-    })
-}]);
+        controllerAs: 'ctrl',
+      });
+  },
+]);
 
 ikka.config = {
-    capabilities: {
-        browserName: 'chrome',
-        version: '',
-        platform: 'ANY',
-        'chromeOptions': {
-            'args': ['lang=utf8']
-        }
-    }
-}
+  capabilities: {
+    browserName: 'chrome',
+    version: '',
+    platform: 'ANY',
+    chromeOptions: {
+      args: ['lang=utf8'],
+    },
+  },
+};
