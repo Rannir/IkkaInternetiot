@@ -36,7 +36,7 @@ const createPath = function(isProd, suffix) {
 };
 
 const projectPaths = {
-  html: ['app/**/*.html', '!app/index.html', '!app/authentication/authentication.html', '!app/products/products.html'],
+  html: ['app/**/*.html', '!app/index.html', '!app/authentication/authentication.html'],
   htmlRoot: ['app/*.html'],
   javascript: [
     'app/imports.js',
