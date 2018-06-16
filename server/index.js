@@ -9,8 +9,9 @@ const {initChat} = require('./services/chat');
 const routes = require('./routes');
 const http = require('http');
 
-mongoose.connect('mongodb://igor:password1@ds259410.mlab.com:59410/ikka-db');
-// mongoose.connect('mongodb://localhost:27017/ikka-db');
+mongoose
+  .connect('mongodb://igor:password1@ds259410.mlab.com:59410/ikka-db')
+  .then(() => console.log('connection to the db made successfully!'));
 //mongoose.connect('mongodb://localhost:27017/ikka');
 initPassport();
 

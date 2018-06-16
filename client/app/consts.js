@@ -1,5 +1,3 @@
-'use strict';
-
 const serverUrl = 'http://localhost:3090';
 
 angular.module('ikka').constant('consts', {
@@ -7,4 +5,5 @@ angular.module('ikka').constant('consts', {
   signupApi: `${serverUrl}/api/signup`,
   chatUrl: `${serverUrl}`,
   chatReourcePath: `/ikkachat/socket.io`,
+  productsApi: `${serverUrl}/api/products`,
 });

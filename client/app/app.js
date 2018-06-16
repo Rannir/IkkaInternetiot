@@ -49,6 +49,11 @@ ikka.config([
         templateUrl: /*!*/ 'HTML/login.html',
         controller: 'loginController',
         controllerAs: 'ctrl',
+      })
+      .when('/products', {
+        templateUrl: /*!*/ 'HTML/products.html',
+        controller: 'productsController',
+        controllerAs: 'ctrl',
       });
   },
 ]);
