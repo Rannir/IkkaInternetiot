@@ -1,0 +1,14 @@
+.container {
+  width: 100vw;
+  text-align: center;
+}
+
+.title {
+  font-size: 48px;
+  text-shadow: 2px 4px #59abc1;
+  transition: all 1s;
+  cursor: default;
+}
+.title:hover {
+  transform: scale(2);
+}

@@ -1,27 +1,49 @@
 <html ng-app="ikka">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ikka</title>
-        <script src="js/app.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-        <link rel="stylesheet" type="text/css" href="css/toaster.css"/>
-        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
-    <body ng-controller="indexController as ctrl">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikka</title>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/toaster.css" />
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body ng-controller="indexController as ctrl">
+    <header>
         <nav class="attachedItem topAttach navBarMenu">
             <ul class="menu">
-                <li><a href="#/">Ikka</a></li>
-                <li><a href="#/products">Products</a></li>
-                <li><a href="#/">path b</a></li>
-                <li><a href="#/">path c</a></li>
-                <li><a href="#/">path d</a></li>
-                <li><auth-component login-function="ctrl.login()" register-function="ctrl.register()"></auth-component></li>
+                <li>
+                    <a href="#/">IKKA</a>
+                </li>
+                <li>
+                    <a href="#/products">Products</a>
+                </li>
+                <li>
+                    <a href="#/">path b</a>
+                </li>
+                <li>
+                    <a href="#/">path c</a>
+                </li>
+                <li>
+                    <a href="#/">path d</a>
+                </li>
+                <li>
+                    <auth-component login-function="ctrl.login()" register-function="ctrl.register()"></auth-component>
+                </li>
             </ul>
         </nav>
-        <toaster-container toaster-options="{'time-out': 7000}"></toaster-container>
-        <div ng-view class="ngViewDiv"></div> 
-        <aside class="chatContainer"><chat-component is-admin="ctrl.isAdmin" chat-server-url="ctrl.chatServerUrl" chat-server-resource-path="ctrl.chatResource" token="ctrl.token"></chat-component></div>
-        <footer class="attachedItem botAttach footerSection"><p class="footerParagraph">some footer text yo</p></footer>
-    </body>
+    </header>
+    <toaster-container toaster-options="{'time-out': 7000}"></toaster-container>
+    <div ng-view class="ngViewDiv"></div>
+    <aside class="chatContainer">
+        <chat-component is-admin="ctrl.isAdmin" chat-server-url="ctrl.chatServerUrl" chat-server-resource-path="ctrl.chatResource"
+            token="ctrl.token"></chat-component>
+        </div>
+        <footer class="attachedItem botAttach footerSection">
+            <p class="footerParagraph">some footer text yo</p>
+        </footer>
+</body>
+
 </html>

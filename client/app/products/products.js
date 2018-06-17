@@ -7,6 +7,7 @@ angular.module('ikka').controller('productsController', function($scope, $locati
 
   productsService.getProducts(consts.productsApi).then(products => {
     $scope.products = products;
+    $scope.$apply();
   });
 
   return ctrl;
