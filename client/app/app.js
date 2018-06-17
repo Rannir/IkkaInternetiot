@@ -49,6 +49,11 @@ ikka.config([
         templateUrl: /*!*/ 'HTML/login.html',
         controller: 'loginController',
         controllerAs: 'ctrl',
+      })
+      .when('/about-us', {
+        templateUrl: /*!*/ 'HTML/login.html',
+        controller: 'loginController',
+        controllerAs: 'ctrl',
       });
   },
 ]);

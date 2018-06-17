@@ -8,6 +8,7 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .attachedItem {
@@ -28,16 +29,19 @@ body {
 }
 
 .navBarMenu {
-    height: 5vh;
+    color: rgb(0,0,0);
+    background-color: rgb(247, 247, 247);
+    font-weight: bold
 }
 
 .footerSection {
     height: 3vh;
+    background-color: rgb(247, 247, 247);
 }
 
 .footerParagraph {
     margin: auto;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(125, 121, 123, 0.8);
 }
 
 .ngViewDiv {
@@ -52,50 +56,45 @@ body {
     margin-bottom: 3vh;
     width: 25%;
     float: right;
+    background-image: url("images/ikea-pic.jpg")
 }
 
 .menu {
     list-style-type: none;
     width: 100%;
-    margin: 0;
+    margin: 10;
     padding: 0;
-    overflow: hidden;
+    overflow: visible;
+    display: block;
 }
 
 .menu li {
-    margin-right: 1vh;
-    float: left;
     height: 100%;
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 30;
+    margin-left: 30;
 }
 
 .menu li a {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 3vh;
+    color: rgba(0, 0, 0, 0.8);
     height: 100%;
     display: block;
     text-decoration: none;
+    font-size: 1.3em
 }
 .menu li a:hover {
-    background-color: #111;
+    border-bottom: 2px solid rgb(32,56,100);
 }
 
 .menu li:first-child {
-    margin-right: 5vh;
+    margin-left: 20;
 }
 
 .menu li:first-child a {
-    font-size: 5vh;
+    font-size: 2em;
 }
-    
-.menu li:first-child a:hover {
-    background-color: #333;
-}
-
+ 
 .menu li:last-child {
-    float: right;
-    margin-left: 5vh;
-}
-
-.menu li:last-child a:hover {
-    background-color: #333;
+    float:right;
 }
