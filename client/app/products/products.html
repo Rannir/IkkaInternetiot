@@ -1,4 +1,9 @@
-<h2>Catalog</h2>
-<div class="catalog">
-
+<h2 class="title">Catalog</h2>
+<div ng-controller="productsController" class="catalog">
+    <div ng-repeat="prod in products" class="product">
+        <img src="{{prod.photos[0]}}" class="preview" />
+        <span class="name">{{prod.name}}</span>
+        <span class="price">{{prod.price}}$</span>
+        <div class="buttons"></div>
+    </div>
 </div>

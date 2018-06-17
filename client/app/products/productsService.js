@@ -1,9 +1,9 @@
 angular.module('ikka').service('productsService', function($http) {
   const svc = this;
 
-  svc.getProducts = async () => {
+  svc.getProducts = async url => {
     const products = await $http.get(url);
-    console.log(products);
+    return products.data;
   };
 
   return svc;

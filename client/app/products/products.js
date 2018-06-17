@@ -1,21 +1,13 @@
 'use strict';
 
-angular.module('ikka').controller('productsController', function($scope, $location, toaster, productsService, $http) {
+angular.module('ikka').controller('productsController', function($scope, $location, productsService, consts) {
   const ctrl = this;
 
-  console.log('wwww');
+  $scope.products = [];
 
-  ctrl.$onInit = function() {
-    console.log('asdasdas');
-  };
-
-  ctrl.testFunc = () => {
-    console.log('asdasda');
-  };
-
-  ctrl.activate = () => {
-    console.log('productsService.getProducts()');
-  };
+  productsService.getProducts(consts.productsApi).then(products => {
+    $scope.products = products;
+  });
 
   return ctrl;
 });
