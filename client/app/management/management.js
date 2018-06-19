@@ -7,7 +7,7 @@ angular.module('ikka').controller('managementController', function($scope, produ
 
     function init() {
         // Get products grouped by category & count of each category - first grpah
-        // Get products products and present product and its watchedCounter - second graph
+        // Get products grouped by brand & count of each brand - second graph
         productsService.getProducts(consts.productsApi).then(products => {
 
             $scope.products = products;
@@ -28,6 +28,7 @@ angular.module('ikka').controller('managementController', function($scope, produ
             price: 0, 
             description: "",
             category: "",
+            brand: ""
         });
     }
 

@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
   price: Number,
   description: String,
   category: String,
-  watchedCounter: Number,
+  brand: String,
   photos: [String],
 });
 

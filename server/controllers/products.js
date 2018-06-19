@@ -21,7 +21,7 @@ router.post('/products/postProduct', async (req, res, next) => {
       newProduct.price = req.body.price;
       newProduct.description = req.body.description;
       newProduct.category = req.body.category;
-      newProduct.watchedCounter = req.body.watchedCounter;
+      newProduct.brand = req.body.brand;
 
       res.send(await newProduct.save());
     } else {
@@ -31,7 +31,7 @@ router.post('/products/postProduct', async (req, res, next) => {
       newProduct.price = req.body.price;
       newProduct.description = req.body.description;
       newProduct.category = req.body.category;
-      newProduct.watchedCounter = req.body.watchedCounter;
+      newProduct.brand = req.body.brand;
 
       res.send(await Product.findOneAndUpdate({'_id': req.body._id}, newProduct, {upsert:true}));
     }
