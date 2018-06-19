@@ -54,6 +54,11 @@ ikka.config([
         templateUrl: /*!*/ 'HTML/products.html',
         controller: 'productsController',
         controllerAs: 'ctrl',
+      })
+      .when('/management', {
+        templateUrl: /*!*/ 'HTML/management.html',
+        controller: 'managementController',
+        controllerAs: 'ctrl'
       });
   },
 ]);

@@ -6,5 +6,11 @@ angular.module('ikka').service('productsService', function($http) {
     return products.data;
   };
 
+  svc.insertProduct = async function(url, product) {
+    return $http.post(url, product).then(function (result) {
+      return result.data;
+    });
+  };
+
   return svc;
 });

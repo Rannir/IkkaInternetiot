@@ -11,4 +11,24 @@ router.get('/products', async (req, res, next) => {
   }
 });
 
+router.post('/products/postProduct', async (req, res, next) => {
+  
+  try {
+    
+    let newProduct = new Product();    
+    newProduct.name = req.body.name;
+    newProduct.price = req.body.price;
+    newProduct.description = req.body.description;
+    newProduct.category = req.body.category;
+    newProduct.watchedCounter = req.body.watchedCounter;
+
+  res.send(await newProduct.save());
+    
+  } catch (err) {
+    console.error('failed to save product');
+    console.log(err);
+    res.sendStatus(500);
+  }
+});
+
 module.exports = router;

@@ -1,0 +1,54 @@
+<h2>Management</h2>
+<div>
+    <div id="charts">
+        <svg id="barChart1"></svg>
+        <svg id="barChart2"></svg>
+    </div>
+    <div id="twitterAPI">
+
+    </div>
+    <div id="productManagement">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Save/Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="product in products">
+                <td>
+                    <span>
+                        <input type="text" class="editable-cell" ng-model="product.name" />
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <input type="text" class="editable-cell" ng-model="product.price" />
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <input type="text" class="editable-cell" ng-model="product.description" />
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <input type="text" class="editable-cell" ng-model="product.category" />
+                    </span>
+                </td>
+                <td>
+                    <button ng-click="saveRow(product)">Save</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <button ng-click="addNewRow()">add new row</button>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
