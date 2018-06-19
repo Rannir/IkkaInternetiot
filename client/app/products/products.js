@@ -11,5 +11,15 @@ angular.module('ikka').controller('productsController', function($scope, $locati
     $scope.$apply();
   });
 
+  ctrl.search = async () => {
+    let {brand, category, maxPrice} = $scope;
+
+    maxPrice = maxPrice || Number.MAX_VALUE;
+
+    const products = await productsService.queryProducts(consts.productsQueryApi, {brand, category, maxPrice});
+    $scope.products = products;
+    $scope.$apply();
+  };
+
   return ctrl;
 });

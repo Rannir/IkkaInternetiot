@@ -1,8 +1,24 @@
+.productsPage {
+  padding: 48px;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: stretch;
+}
+.searchBar > div {
+  margin-right: 16px;
+}
+
 .catalog {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
 }
 
 .product {
+  width: 150px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
@@ -11,16 +27,28 @@
   padding: 12px;
 }
 
+.category {
+  margin-bottom: 8px;
+}
+
 .preview {
   width: 100px;
   height: 100px;
   object-fit: contain;
+  margin: 8px;
+  align-self: center;
 }
 
 .name {
   color: grey;
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: 8px;
+}
+
+.brand {
+  color: #00aeef;
+  text-transform: uppercase;
+  margin-top: 8px;
 }
 
 .price {

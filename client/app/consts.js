@@ -6,6 +6,7 @@ angular.module('ikka').constant('consts', {
   chatUrl: `${serverUrl}`,
   chatReourcePath: `/ikkachat/socket.io`,
   productsApi: `${serverUrl}/api/products`,
+  branchesApi: `${serverUrl}/api/branches`,
+  productsQueryApi: `${serverUrl}/api/products/query`,
   mostShownCategoryApi: `${serverUrl}/api/products/mostShownCategory`,
-   branchesApi: `${serverUrl}/api/branches`
 });
