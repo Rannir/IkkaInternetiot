@@ -12,5 +12,11 @@ angular.module('ikka').service('productsService', function($http) {
     });
   };
 
+  svc.deleteProduct = async function(url, id) {
+    return $http.post(url, {'id':id}).then(function (result) {
+      return result.data;
+    });
+  };
+
   return svc;
 });

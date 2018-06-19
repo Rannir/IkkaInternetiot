@@ -43,4 +43,15 @@ router.post('/products/postProduct', async (req, res, next) => {
   }
 });
 
+router.post('/products/deleteProduct', async (req, res, next) => {
+
+    try {
+      res.send(await Product.find({'_id': req.body.id}).remove());
+    } catch (err) {  
+      console.error('failed to delete product');
+      console.log(err);
+      res.sendStatus(500);
+    }
+});
+
 module.exports = router;

@@ -17,8 +17,23 @@ angular.module('ikka').controller('managementController', function($scope, produ
           });
     }
 
+    $scope.deleteRow = function(product) {
+        // Do not delete if row exists only in client
+        if(product._id != 0) {
+            productsService.deleteProduct( consts.productsApi + '/deleteProduct', product._id).then(result => {
+                $scope.products.splice($scope.products.indexOf(product), 1);
+                $scope.$apply();
+            });    
+        }
+    }
+
     $scope.saveRow = function(product) {
-        productsService.insertProduct( consts.productsApi + '/postProduct', product);
+        productsService.insertProduct( consts.productsApi + '/postProduct', product).then(result => {
+            console.log("result: " + JSON.stringify(result));
+            $scope.products.splice($scope.products.indexOf(product), 1);
+            $scope.products.push(result);
+            $scope.$apply();
+        });
     }
 
     $scope.addNewRow = function () {
