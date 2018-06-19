@@ -9,6 +9,6 @@ const schema = new mongoose.Schema({
    lng: Number,
 });
 
-const Product = mongoose.model('branch', schema);
+const Branch = mongoose.model('branch', schema);
 
 module.exports = Branch;
