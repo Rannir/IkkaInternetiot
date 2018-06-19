@@ -6,5 +6,6 @@ angular.module('ikka').constant('consts', {
   chatUrl: `${serverUrl}`,
   chatReourcePath: `/ikkachat/socket.io`,
   productsApi: `${serverUrl}/api/products`,
-  mostShownCategoryApi: `${serverUrl}/api/products/mostShownCategory`
+  mostShownCategoryApi: `${serverUrl}/api/products/mostShownCategory`,
+  webserviceAPI: `https://free.currencyconverterapi.com/api/v5/convert?q=USD_ILS&compact=y`,
 });

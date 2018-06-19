@@ -1,11 +1,13 @@
 'use strict';
 const d3 = require("d3");
+const http = require("http");
 
-angular.module('ikka').controller('managementController', function($scope, productsService, consts, $http) {
+angular.module('ikka').controller('managementController', function($scope, managementService, productsService, consts, $http) {
     
     init();
 
     function init() {
+
         productsService.getProductsGroupedByBrand(consts.productsApi + '/groupByBrand').then(result => {
             drawGraph1(result);
         });
@@ -18,9 +20,18 @@ angular.module('ikka').controller('managementController', function($scope, produ
             $scope.products = products;
           });
 
+
+          managementService.getFinanceData(consts.webserviceAPI).then(result => {
+            $scope.usd_ils = result;
+            $scope.$apply();
+        });
+
           $http.get(consts.mostShownCategoryApi).then(res => {
             $scope.mostshowncat = res.data;
           });
+
+
+        // $scope.$apply();
     }
 
     $scope.deleteRow = function(product) {
