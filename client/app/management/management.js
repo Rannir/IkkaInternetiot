@@ -1,8 +1,8 @@
 'use strict';
 const d3 = require("d3");
 
-angular.module('ikka').controller('managementController', function($scope, productsService, consts) {
-
+angular.module('ikka').controller('managementController', function($scope, productsService, consts, $http) {
+    
     init();
 
     function init() {
@@ -14,6 +14,10 @@ angular.module('ikka').controller('managementController', function($scope, produ
 
             // drawGraph1();
             // drawGraph2();
+          });
+
+          $http.get(consts.mostShownCategoryApi).then(res => {
+            $scope.mostshowncat = res.data;
           });
     }
 
