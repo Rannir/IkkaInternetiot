@@ -17,18 +17,8 @@ angular.module('ikka').controller('managementController', function($scope, produ
           });
     }
 
-    function updateRow() {
-
-    }
-
-    function deleteRow() {
-
-    }
-
     $scope.saveRow = function(product) {
-        productsService.insertProduct( consts.productsApi + '/postProduct', product).then(result => {
-            console.log("product added: " + result);
-        });
+        productsService.insertProduct( consts.productsApi + '/postProduct', product);
     }
 
     $scope.addNewRow = function () {
