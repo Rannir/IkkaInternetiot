@@ -15,7 +15,10 @@
         <nav class="attachedItem topAttach navBarMenu">
             <ul class="menu">
                 <li>
-                    <a href="#/">IKKA</a>
+                    <!-- <a href="#/">IKKA</a> -->
+                    <canvas id="myCanvas" class="test" ng-click="ctrl.navMain()">
+                    Your browser does not support the canvas element.
+                    </canvas>
                 </li>
                 <li>
                     <a href="#/products">Products</a>
@@ -44,6 +47,15 @@
         <footer class="attachedItem botAttach footerSection">
             <p class="footerParagraph">some footer text yo</p>
         </footer>
+
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "50px Comic Sans MS";
+            ctx.fillStyle = "red";
+            ctx.textAlign = "center";
+            ctx.fillText("Ikka",canvas.width/2, canvas.height/2);
+        </script>
 </body>
 
 </html>
