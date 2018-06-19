@@ -18,7 +18,7 @@
 
 .product {
   width: 150px;
-  height: 200px;
+  height: 225px;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
