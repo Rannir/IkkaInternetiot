@@ -8,4 +8,6 @@ angular.module('ikka').constant('consts', {
   productsApi: `${serverUrl}/api/products`,
   mostShownCategoryApi: `${serverUrl}/api/products/mostShownCategory`,
   webserviceAPI: `https://free.currencyconverterapi.com/api/v5/convert?q=USD_ILS&compact=y`,
+  branchesApi: `${serverUrl}/api/branches`,
+  productsQueryApi: `${serverUrl}/api/products/query`,
 });

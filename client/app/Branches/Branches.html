@@ -1,0 +1,27 @@
+<div class="branches-page">
+    <div class="content">
+    <section class="first ui">
+        <input class="searchbar" type="text" placeholder="Type to search by a city name, address..." ng-model="search.name">
+        <hr>
+        <div class="results">
+            <article ng-repeat="branch in branches | filter:search">
+                <h1 class="branch-header">{{branch.name}}</h1>
+                <span class="details">{{branch.address}}, {{branch.city}}</span>
+            </article>
+        </div>
+
+    </section>
+    <section id="map"></section>
+    </div>
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 8
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJmP-DC8bcppKa0kwFeKdD_Rv0LVlk4g&callback=initMap"
+            async defer></script>
+</div>
