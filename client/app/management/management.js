@@ -6,14 +6,16 @@ angular.module('ikka').controller('managementController', function($scope, produ
     init();
 
     function init() {
-        // Get products grouped by category & count of each category - first grpah
-        // Get products grouped by brand & count of each brand - second graph
+        productsService.getProductsGroupedByBrand(consts.productsApi + '/groupByBrand').then(result => {
+            drawGraph1(result);
+        });
+
+        productsService.getProductsGroupedByBrand(consts.productsApi + '/groupByCategory').then(result => {
+            drawGraph2(result);
+        });
+        
         productsService.getProducts(consts.productsApi).then(products => {
-
             $scope.products = products;
-
-            // drawGraph1();
-            // drawGraph2();
           });
     }
 
@@ -47,18 +49,7 @@ angular.module('ikka').controller('managementController', function($scope, produ
         });
     }
 
-    function drawGraph1() {
-        var data = [
-            {
-                price: 1,
-                Month: "July"
-            },
-            {
-                price: 2,
-                Month: "June"
-            },
-        ];
-
+    function drawGraph1(data) {
         var margin = {
             top: 10,
             right: 30,
@@ -99,12 +90,12 @@ angular.module('ikka').controller('managementController', function($scope, produ
     
         //The x domain is a map of all the Products names
         x.domain(data.map(function (d) {
-            return d.Month;
+            return d._id;
         }));
     
         //The y domain is a range from the maximal (Count) value in the array until 0
         y.domain([d3.max(data, function (d) {
-            return d.price;
+            return d.count;
     
         }), 0]);
     
@@ -131,33 +122,21 @@ angular.module('ikka').controller('managementController', function($scope, produ
     
           .attr("x", function (d) {
               //the x function, transforms the value, based on the scale
-              return x(d.Month);
+              return x(d._id);
           })
             //The rangeBand() function returns the width of the bars
           .attr("width", x.rangeBand())
           .attr("y", function (d) {
               //the y function does the same
-              return y(d.price);
+              return y(d.count);
     
           })
           .attr("height", function (d) {
-              return height - y(d.price);
+              return height - y(d.count);
           });
     }
 
-    function drawGraph2() {
-        var data = [
-            {
-                count: 1,
-                Category: "Shelfs"
-            },
-            {
-                count: 2,
-                Category: "Desktops"
-            },
-        ];
-
-
+    function drawGraph2(data) {
         //sort bars based on value
         data = data.sort(function (a, b) {
             return d3.ascending(a.count, b.count);
@@ -189,7 +168,7 @@ angular.module('ikka').controller('managementController', function($scope, produ
         var y = d3.scale.ordinal()
             .rangeRoundBands([height, 0], .1)
             .domain(data.map(function (d) {
-                return d.Category;
+                return d._id;
             }));
             
         //make y axis to show bar names
@@ -212,7 +191,7 @@ angular.module('ikka').controller('managementController', function($scope, produ
         bars.append("rect")
             .attr("class", "bar")
             .attr("y", function (d) {
-                return y(d.Category);
+                return y(d._id);
             })
             .attr("height", y.rangeBand())
             .attr("x", 0)
@@ -225,7 +204,7 @@ angular.module('ikka').controller('managementController', function($scope, produ
             .attr("class", "label")
             //y position of the label is halfway down the bar
             .attr("y", function (d) {
-                return y(d.Category) + y.rangeBand() / 2 + 4;
+                return y(d._id) + y.rangeBand() / 2 + 4;
             })
             //x position is 3 pixels to the right of the bar
             .attr("x", function (d) {

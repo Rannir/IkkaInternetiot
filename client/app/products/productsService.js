@@ -18,5 +18,17 @@ angular.module('ikka').service('productsService', function($http) {
     });
   };
 
+  svc.getProductsGroupedByBrand = async function(url) {
+    return $http.get(url).then(function (result) {
+      return result.data;
+    });
+  };
+
+  svc.getProductsGroupedByCategory = async function(url) {
+    return $http.get(url).then(function (result) {
+      return result.data;
+    });
+  };
+
   return svc;
 });

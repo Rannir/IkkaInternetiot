@@ -54,4 +54,42 @@ router.post('/products/deleteProduct', async (req, res, next) => {
     }
 });
 
+router.get('/products/groupByBrand', async (req, res, next) => {
+
+  try {
+    Product.aggregate([
+      {"$group" : {_id:"$brand", count:{$sum:1}}}
+    ], function (err, result) {
+      if(err) {
+        next(err);
+      } else {
+        res.send(result)
+      }
+    });
+  } catch(err) {
+    console.error('failed to group products by brand');
+    console.log(err);
+    res.sendStatus(500);
+  }
+});
+
+router.get('/products/groupByCategory', async (req, res, next) => {
+
+  try {
+    Product.aggregate([
+      {"$group" : {_id:"$category", count:{$sum:1}}}
+    ], function (err, result) {
+      if(err) {
+        next(err);
+      } else {
+        res.send(result)
+      }
+    });
+  } catch(err) {
+    console.error('failed to group products by category');
+    console.log(err);
+    res.sendStatus(500);
+  }
+});
+
 module.exports = router;
