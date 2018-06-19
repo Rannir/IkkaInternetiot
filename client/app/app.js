@@ -51,8 +51,8 @@ ikka.config([
         controllerAs: 'ctrl',
         })
         .when('/branches', {
-            templateUrl: /*!*/ 'HTML/Branches.html',
-            controller: 'productsController',
+            templateUrl: /*!*/ 'HTML/branches.html',
+            controller: 'branchesController',
             controllerAs: 'ctrl',
         })
       .when('/products', {
