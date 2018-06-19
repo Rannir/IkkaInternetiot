@@ -11,6 +11,10 @@ angular.module('ikka').controller('indexController', function($scope, $location,
     ctrl.isAdmin = authService.getIsAdmin();
   });
 
+  ctrl.navMain = function() {
+    $location.path('/');
+  }
+
   ctrl.register = function() {
     $location.path('/register');
   };
