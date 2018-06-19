@@ -1,10 +1,10 @@
 <div class="branches-page">
     <div class="content">
         <section class="first ui">
-            <input class="searchbar" type="text" placeholder="Type to search by a city name, address..." ng-model="search.name">
+            <input class="searchbar" type="text" placeholder="Type to search by a city name, address..." ng-model="search.name" ng-click="cleanMarkers()">
             <hr>
             <div class="results">
-                <article ng-repeat="branch in branches | filter:search">
+                <article ng-repeat="branch in branches | filter:search" ng-click="createMarkers()">
                     <h1 class="branch-header">{{branch.name}}</h1>
                     <span class="details">{{branch.address}}, {{branch.city}}</span>
                 </article>
@@ -13,3 +13,5 @@
         <section id="map"></section>
     </div>
 </div>
+
+
