@@ -49,7 +49,12 @@ ikka.config([
         templateUrl: /*!*/ 'HTML/login.html',
         controller: 'loginController',
         controllerAs: 'ctrl',
-      })
+        })
+        .when('/branches', {
+            templateUrl: /*!*/ 'HTML/Branches.html',
+            controller: 'productsController',
+            controllerAs: 'ctrl',
+        })
       .when('/products', {
         templateUrl: /*!*/ 'HTML/products.html',
         controller: 'productsController',
