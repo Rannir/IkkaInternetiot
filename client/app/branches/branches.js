@@ -1,27 +1,39 @@
 'use strict';
 
 angular.module('ikka').controller('branchesController', function($scope, $location, branchesService, consts) {
-    const ctrl = this;
-    
-    $scope.branches = [{ id: 1, name: "Eden", address: "Azrieli", city: "tel aviv", lat: -25.444, lng: 131.036 },
-        { id: 1, name: "Baree", address: "Azrieli", city: "tel aviv", lat: -25.444, lng: 131.036 }];
+  const ctrl = this;
 
-    return ctrl;
+  var myLatlng = new google.maps.LatLng((lat: 32.07), (lng: 34.79));
 
+  $scope.map = new google.maps.Map(document.getElementById('map'), {
+    center: myLatlng,
+    zoom: 8,
+  });
 
+  $scope.branches = [
+    {id: 1, name: 'Eden', address: 'Azrieli', city: 'tel aviv', lat: 32.17, lng: 34.79},
+    {id: 1, name: 'Baree', address: 'Azrieli', city: 'tel aviv', lat: 31.97, lng: 34.78},
+  ];
 
- //branchesService.getBranches(consts.branchesApi).then(branches => {
- // $scope.branches = branches;
- // $scope.$apply();
+  var marker = new google.maps.Marker(myLatlng, (map: map));
+  marker.setMap(map);
 
- //   createMarkers(branches);
- //   });
+  $scope.createMarkers = () => {
+    for (var branch of $scope.branches) {
+      var marker = new google.maps.Marker({position: branch, map: map});
+    }
+  };
 
-    $scope.createMarkers = () => {
-        for (var branch of $scope.branches) {
-            var marker = new google.maps.Marker({ position: branch, map: map });
-        }
-    };
- 
+  //createMarkers(branches);
+
+  return ctrl;
+
+  //branchesService.getBranches(consts.branchesApi).then(branches => {
+  // $scope.branches = branches;
+  // $scope.$apply();
+
+  //   createMarkers(branches);
+  //   });
+
   return ctrl;
 });
