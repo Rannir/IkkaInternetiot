@@ -46,37 +46,14 @@ router.post('/products/search', async (req, res, next) => {
 });
 
 router.get('/products/mostShownCategory', async (req, res, next) => {
-  Product.find({}, function(err, products) {
-    if (err) {
-      console.error('failed load products');
-      console.log(err);
-      res.sendStatus(500);
-    }
-
-    if (products && products.length != 0) {
-      let maxCount = 0;
-      let categoryName = '';
-
-      for (let i = 0; i < products.length; i++) {
-        let currCount = 0;
-
-        for (let j = 0; j < products.length; j++) {
-          if (products[i].category == products[j].category) {
-            currCount++;
-          }
-        }
-
-        if (currCount > maxCount) {
-          maxCount = currCount;
-          categoryName = products[i].category;
-        }
-      }
-
-      res.send(categoryName);
-    } else {
-      res.send('');
-    }
-  });
+  try {
+    let products = await Product.aggregate([{$group: {_id: '$category', count: {$sum: 1}}}]);
+    products = products.reduce((max, b) => (max.count < b.count ? b : max));
+    res.send(products._id);
+  } catch (err) {
+    console.error('failed to calculate mostShownCategory', err);
+    res.sendStatus(500);
+  }
 });
 
 router.post('/products/postProduct', async (req, res, next) => {
