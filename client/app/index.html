@@ -3,12 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ikka</title>
-    <script>
-        function initMap() {
-            
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJmP-DC8bcppKa0kwFeKdD_Rv0LVlk4g&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJmP-DC8bcppKa0kwFeKdD_Rv0LVlk4g"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <link rel="stylesheet" type="text/css" href="css/toaster.css" />
@@ -22,7 +17,7 @@
             <ul class="menu">
                 <li>
                     <!-- <a href="#/">IKKA</a> -->
-                    <canvas id="myCanvas" class="test" ng-click="ctrl.navMain()">
+                    <canvas id="myCanvas" class="navBarCanvas" ng-click="ctrl.navMain()">
                         Your browser does not support the canvas element.
                     </canvas>
                 </li>
@@ -36,32 +31,31 @@
                     <a href="#/branches">Branches</a>
                 </li>
                 <li>
-                    <a href="#/">path d</a>
-                </li>
-                <li>
                     <auth-component login-function="ctrl.login()" register-function="ctrl.register()"></auth-component>
                 </li>
             </ul>
         </nav>
     </header>
     <toaster-container toaster-options="{'time-out': 7000}"></toaster-container>
-    <div ng-view class="ngViewDiv"></div>
-    <aside class="chatContainer">
-        <chat-component is-admin="ctrl.isAdmin" chat-server-url="ctrl.chatServerUrl" chat-server-resource-path="ctrl.chatResource"
-                        token="ctrl.token"></chat-component>
-        </div>
-        <footer class="attachedItem botAttach footerSection">
-            <p class="footerParagraph">some footer text yo</p>
-        </footer>
+    <div class="mainPageContainer">
+        <div ng-view class="ngViewDiv"></div>
+        <aside class="chatContainer">
+            <chat-component is-admin="ctrl.isAdmin" chat-server-url="ctrl.chatServerUrl" chat-server-resource-path="ctrl.chatResource"
+                            token="ctrl.token"></chat-component>
+    </div>
+    <footer class="attachedItem botAttach footerSection">
+        <p class="footerParagraph">Made by IKKA</p>
+    </footer>
 
-        <script>
-            var canvas = document.getElementById("myCanvas");
-            var ctx = canvas.getContext("2d");
-            ctx.font = "50px Comic Sans MS";
-            ctx.fillStyle = "red";
-            ctx.textAlign = "center";
-            ctx.fillText("Ikka", canvas.width / 2, canvas.height / 2);
-        </script>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.font = "80px Arial";
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.fillText("IKKA", canvas.width / 2, canvas.height / 2);
+    </script>
+    </div>
 </body>
 
 </html>
