@@ -1,9 +1,28 @@
-<h2>Catalog</h2>
-<div ng-controller="productsController" class="catalog">
-    <div ng-repeat="prod in products" class="product">
-        <img ng-if="prod.photos" src="{{prod.photos[0]}}" class="preview" />
-        <span class="name">{{prod.name}}</span>
-        <span class="price">{{prod.price}}$</span>
-        <div class="buttons"></div>
+<div class="productsPage">
+    <h2>Catalog</h2>
+    <div class="searchBar">
+        <div>
+            <label>Max Price:</label>
+            <input ng-model="maxPrice" type="number" min="1" />
+        </div>
+        <div>
+            <label>Brand:</label>
+            <input ng-model="brand" />
+        </div>
+        <div>
+            <label>Category:</label>
+            <input ng-model="category" />
+        </div>
+        <button ng-click="ctrl.search()">Search</button>
+    </div>
+    <div class="catalog">
+        <div ng-repeat="prod in products" class="product">
+            <span class="category">{{prod.category}}</span>
+            <img ng-if="prod.photos" src="{{prod.photos[0]}}" class="preview" />
+            <span class="name">{{prod.name}}</span>
+            <span class="brand">{{prod.brand}}</span>
+            <span class="price">{{prod.price}}$</span>
+            <div class="buttons"></div>
+        </div>
     </div>
 </div>

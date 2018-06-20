@@ -1,4 +1,6 @@
 .chatSection {
+  padding: 16px;
+  height: 100%;
 }
 
 .chatMessages {

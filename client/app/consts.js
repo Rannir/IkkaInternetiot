@@ -7,5 +7,12 @@ angular.module('ikka').constant('consts', {
   chatReourcePath: `/ikkachat/socket.io`,
   productsApi: `${serverUrl}/api/products`,
   mostShownCategoryApi: `${serverUrl}/api/products/mostShownCategory`,
-   branchesApi: `${serverUrl}/api/branches`
+  webserviceAPI: `https://free.currencyconverterapi.com/api/v5/convert?q=USD_ILS&compact=y`,
+  branchesApi: `${serverUrl}/api/branches`,
+  productsQueryApi: `${serverUrl}/api/products/query`,
+  tweeterApi: `${serverUrl}/api/twitter`,
+  twitterConsumerKey: `pQJn6sjNxuivMZMlRz6aGIqSk`,
+  twitterConsumerSecret: `hRchrNrU8pv10e5HIu4eag5ZQz1J2jYPZuwv7ME6mMEnns6503`,
+  twitterAccessTokenKey: `924214133867806720-2LCmCadngZ8HU7FedaBRDF3qPBZKm39`,
+  twitterAccessTokenSecret: `vDdph6vAYdW41Xq95G6MR3fuRvC8xLw6MxuZwt49XnGef`,
 });

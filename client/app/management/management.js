@@ -1,11 +1,13 @@
 'use strict';
 const d3 = require("d3");
+const http = require("http");
 
-angular.module('ikka').controller('managementController', function($scope, productsService, consts, $http) {
+angular.module('ikka').controller('managementController', function($scope, managementService, productsService, consts, $http) {
     
     init();
 
     function init() {
+
         productsService.getProductsGroupedByBrand(consts.productsApi + '/groupByBrand').then(result => {
             drawGraph1(result);
         });
@@ -16,17 +18,30 @@ angular.module('ikka').controller('managementController', function($scope, produ
         
         productsService.getProducts(consts.productsApi).then(products => {
             $scope.products = products;
-          });
+        });
 
-          $http.get(consts.mostShownCategoryApi).then(res => {
-            $scope.mostshowncat = res.data;
-          });
+
+        managementService.getFinanceData(consts.webserviceAPI).then(result => {
+            $scope.usd_ils = result;
+            $scope.$apply();
+        });
+
+        managementService.getMostShownCategory(consts.mostShownCategoryApi).then(result => {
+            $scope.mostshowncat = result;
+            $scope.$apply();
+        });
+    }
+
+    $scope.postTweet = function (tweet) {
+        managementService.postTweet(consts.tweeterApi + '/tweet', tweet).then(result => {
+            console.log("tweeted");
+        });
     }
 
     $scope.deleteRow = function(product) {
         // Do not delete if row exists only in client
         if(product._id != 0) {
-            productsService.deleteProduct( consts.productsApi + '/deleteProduct', product._id).then(result => {
+            productsService.deleteProduct(consts.productsApi + '/deleteProduct', product._id).then(result => {
                 $scope.products.splice($scope.products.indexOf(product), 1);
                 $scope.$apply();
             });    

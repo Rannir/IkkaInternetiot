@@ -4,7 +4,7 @@
             <input class="searchbar" type="text"
                    placeholder="Type to search by a city name, address..."
                    ng-change="createMarkers(branches | filter:search)"
-                   ng-model="search.name">
+                   ng-model="search">
             <hr>
             <div class="results">
                 <article ng-repeat="branch in branches | filter:search">
