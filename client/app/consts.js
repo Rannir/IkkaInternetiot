@@ -11,6 +11,8 @@ angular.module('ikka').constant('consts', {
   productsApi: `${serverUrl}/api/products`,
   productsQueryApi: `${serverUrl}/api/products/query`,
   productsSearchApi: `${serverUrl}/api/products/search`,
+  productClickedApi: `${serverUrl}/api/products/clicked`,
+  productPopularApi: `${serverUrl}/api/products/mostPopularProduct`,
   tweeterApi: `${serverUrl}/api/twitter`,
   twitterConsumerKey: `pQJn6sjNxuivMZMlRz6aGIqSk`,
   twitterConsumerSecret: `hRchrNrU8pv10e5HIu4eag5ZQz1J2jYPZuwv7ME6mMEnns6503`,

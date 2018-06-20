@@ -1,6 +1,8 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const router = express.Router();
 const Product = require('../models/Product');
+const Click = require('../models/clicked');
 
 router.get('/products', async (req, res, next) => {
   try {
@@ -41,6 +43,34 @@ router.post('/products/search', async (req, res, next) => {
     res.send(filteredProducts);
   } catch (err) {
     console.error('failed to fetch products', err);
+    res.sendStatus(500);
+  }
+});
+
+router.post('/products/clicked', async (req, res, next) => {
+  try {
+    const {_id} = req.body;
+
+    let click = new Click();
+    click._id = mongoose.Types.ObjectId();
+    click.productId = _id;
+    click.save();
+    console.log('product', _id, 'saved');
+    res.sendStatus(200);
+  } catch (err) {
+    console.error('failed to click', err);
+    res.sendStatus(500);
+  }
+});
+
+router.get('/products/mostPopularProduct', async (req, res, next) => {
+  try {
+    let products = await Click.aggregate([{$group: {_id: '$productId', count: {$sum: 1}}}]);
+    products = products.reduce((max, b) => (max.count < b.count ? b : max));
+    const filteredProducts = await Product.find({_id: products._id}).sort('name');
+    res.send(filteredProducts);
+  } catch (err) {
+    console.error('failed to calculate mostShownCategory', err);
     res.sendStatus(500);
   }
 });

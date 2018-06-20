@@ -16,6 +16,15 @@ angular.module('ikka').service('productsService', function($http) {
     return products.data;
   };
 
+  svc.productClicked = async (url, queryParams) => {
+    await $http.post(url, queryParams);
+  };
+
+  svc.getPopularProduct = async (url, queryParams) => {
+    const products = await $http.get(url, queryParams);
+    return products.data;
+  };
+
   svc.insertProduct = async function(url, product) {
     return $http.post(url, product).then(function(result) {
       return result.data;

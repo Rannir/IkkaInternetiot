@@ -23,7 +23,7 @@
         <button ng-click="ctrl.search()">Search</button>
     </div>
     <div class="catalog">
-        <div ng-repeat="prod in products" class="product">
+        <div ng-repeat="prod in products" class="product" ng-click="ctrl.productClicked(prod)">
             <span class="category">{{prod.category}}</span>
             <img ng-if="prod.photos" src="{{prod.photos[0]}}" class="preview" />
             <span class="name">{{prod.name}}</span>
@@ -32,4 +32,6 @@
             <div class="buttons"></div>
         </div>
     </div>
+
+    <p>The most popular product is: {{mostPopular}}</p>
 </div>
