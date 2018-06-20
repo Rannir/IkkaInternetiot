@@ -13,6 +13,13 @@
             <label>Category:</label>
             <input ng-model="category" />
         </div>
+        <button ng-click="ctrl.query()">Search</button>
+    </div>
+    <div class="searchBar">
+        <div>
+            <label>Search By Term:</label>
+            <input ng-model="searchTerm" />
+        </div>
         <button ng-click="ctrl.search()">Search</button>
     </div>
     <div class="catalog">

@@ -27,6 +27,24 @@ router.post('/products/query', async (req, res, next) => {
   }
 });
 
+router.post('/products/search', async (req, res, next) => {
+  try {
+    const {searchTerm} = req.body;
+
+    const filteredProducts = await Product.find({
+      $or: [
+        {name: {$regex: searchTerm, $options: 'i'}},
+        {brand: {$regex: searchTerm, $options: 'i'}},
+        {category: {$regex: searchTerm, $options: 'i'}},
+      ],
+    }).sort('name');
+    res.send(filteredProducts);
+  } catch (err) {
+    console.error('failed to fetch products', err);
+    res.sendStatus(500);
+  }
+});
+
 router.get('/products/mostShownCategory', async (req, res, next) => {
   Product.find({}, function(err, products) {
     if (err) {
