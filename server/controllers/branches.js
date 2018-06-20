@@ -4,6 +4,7 @@ const Branch = require('../models/branch');
 
 router.get('/branches', async (req, res, next) => {
     try {
+        console.log("server");
         res.send(await Branch.find());
     } catch (err) {
         console.error('failed to fetch branches');
