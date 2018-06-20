@@ -4,7 +4,7 @@ const Product = require('../models/Product');
 
 router.get('/products', async (req, res, next) => {
   try {
-    res.send(await Product.find());
+    res.send(await Product.find().sort('name'));
   } catch (err) {
     console.error('failed to fetch products');
     res.sendStatus(500);
@@ -19,7 +19,7 @@ router.post('/products/query', async (req, res, next) => {
       price: {$lt: maxPrice},
       brand: {$regex: brand, $options: 'i'},
       category: {$regex: category, $options: 'i'},
-    });
+    }).sort('name');
     res.send(filteredProducts);
   } catch (err) {
     console.error('failed to fetch products', err);
