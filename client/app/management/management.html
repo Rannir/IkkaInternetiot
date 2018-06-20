@@ -1,8 +1,10 @@
 <h2>Management</h2>
 <div>
-    <p ng-if="usd_ils">
-        1 USD IS {{usd_ils}} NIS
-    </p>
+    <div id="service">
+        <p ng-if="usd_ils">
+                1 USD IS {{usd_ils}} NIS
+        </p>
+    </div>
     <div id="charts">
         <h4>How many products of each brand?</h4>
         <svg id="barChart1"></svg>
@@ -10,11 +12,12 @@
         <svg id="barChart2"></svg>
     </div>
     <div id="twitterAPI">
-
+        <div class="twitterpost">
+            <input type="text" placeholder="Tweet..." id="tweet-input" ng-model="myTweet"> 
+            <button id="tweet-button" type="button" ng-click="postTweet(myTweet)">Go!</button>
+        </div>
     </div>
-    <div id="service">
-
-    </div>
+    <br />
     <div id="productManagement">
         <table>
             <thead>

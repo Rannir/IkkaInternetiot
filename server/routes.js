@@ -4,6 +4,7 @@ const router = express.Router();
 
 const Authentication = require('./controllers/authentication');
 const productsController = require('./controllers/products');
+const twitterController = require('./controllers/twitter');
 
 // session: false, is because passport wants to use a cookie
 // based session for this request, since we are using tokens we dont want that
@@ -16,5 +17,6 @@ router.get('/', requireAuth, function(req, res) {
 router.post('/signin', requireSignin, Authentication.signin);
 router.post('/signup', Authentication.signup);
 router.use(productsController);
+router.use(twitterController);
 
 module.exports = router;

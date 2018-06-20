@@ -29,15 +29,18 @@ angular.module('ikka').controller('managementController', function($scope, manag
           $http.get(consts.mostShownCategoryApi).then(res => {
             $scope.mostshowncat = res.data;
           });
+    }
 
-
-        // $scope.$apply();
+    $scope.postTweet = function (tweet) {
+        managementService.postTweet(consts.tweeterApi + '/tweet', tweet).then(result => {
+            console.log("tweeted");
+        });
     }
 
     $scope.deleteRow = function(product) {
         // Do not delete if row exists only in client
         if(product._id != 0) {
-            productsService.deleteProduct( consts.productsApi + '/deleteProduct', product._id).then(result => {
+            productsService.deleteProduct(consts.productsApi + '/deleteProduct', product._id).then(result => {
                 $scope.products.splice($scope.products.indexOf(product), 1);
                 $scope.$apply();
             });    
