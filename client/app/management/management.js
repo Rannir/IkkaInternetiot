@@ -18,17 +18,17 @@ angular.module('ikka').controller('managementController', function($scope, manag
         
         productsService.getProducts(consts.productsApi).then(products => {
             $scope.products = products;
-          });
+        });
 
 
-          managementService.getFinanceData(consts.webserviceAPI).then(result => {
+        managementService.getFinanceData(consts.webserviceAPI).then(result => {
             $scope.usd_ils = result;
             $scope.$apply();
         });
 
-          $http.get(consts.mostShownCategoryApi).then(res => {
-            $scope.mostshowncat = res.data;
-          });
+        managementService.getMostShownCategory(consts.mostShownCategoryApi).then(result => {
+            $scope.mostshowncat = result;
+        });
     }
 
     $scope.postTweet = function (tweet) {

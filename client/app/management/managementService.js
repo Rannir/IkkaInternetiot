@@ -15,6 +15,13 @@ angular.module('ikka').service('managementService', function($http) {
         });
     };
 
+    svc.getMostShownCategory = async function(url) {
+        
+        $http.get(url).then(res => {
+            return res.data;
+          });
+    };
+
     return svc;
 });
   
